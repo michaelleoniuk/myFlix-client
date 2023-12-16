@@ -4,9 +4,10 @@ import { MovieView } from "../movie-view/movie-view";
 
 export const MainView = () => {
   const [movies, setMovies] = useState([]);
+  const [selectedMovie, setSelectedMovie] = useState(null);
 
   useEffect(() => {
-      fetch("https://czo-myflix-ccfb67c11465.herokuapp.com/")
+      fetch("https://czo-myflix-ccfb67c11465.herokuapp.com/movies")
           .then((response) => response.json())
           .then((data) => {
               console.log(data);
@@ -27,8 +28,6 @@ export const MainView = () => {
           });
   }, []);
 
-  const [selectedMovie, setSelectedMovie] = useState(null);
-
   if (selectedMovie) {
     return (
       <MovieView movie={selectedMovie} onBackClick={() => setSelectedMovie(null)} />
@@ -36,6 +35,8 @@ export const MainView = () => {
   };
 
   if (movies.length === 0) {
+    return <div>No movies to show</div>
+  }
 
     return (
     <div>
@@ -50,4 +51,4 @@ export const MainView = () => {
       ))}
     </div>
   );
-}};
+};
