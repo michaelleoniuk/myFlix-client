@@ -29,6 +29,7 @@ export const MainView = () => {
               setMovies(moviesFromApi);
           });
   }, []);
+  
 
   if (!user) {
     return <LoginView onLoggedIn={(user) => setUser(user)} />;
