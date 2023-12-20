@@ -1,38 +1,38 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
+import { LoginView } from "../login-view/login-view";
 
 export const MainView = () => {
-  const [movies, setMovies] = useState([
-    { 
-    id: 1,
-    title: "Power",
-    description: "After a close friend drops out of politics, a political consultant hel…",
-    genre: "Drama",
-    director: "Sidney Lumet",
-    imagePath: "https://www.briansmoviestars.com/wp-content/uploads/2014/02/Denzel-Washington-31-300x210.jpg"
-    },
-
-    { 
-      id: 2,
-      title: "Carbon Copy",
-      description: "When a rich white corporate executive finds out that he has an illegit…",
-      genre: "Comedy",
-      director: "Michael Schultz",
-      imagePath: "https://www.briansmoviestars.com/wp-content/uploads/2014/02/Denzel-Washington-31-300x210.jpg"
-      },
-
-      { 
-        id: 3,
-        title: "Coriolanus",
-        description: "Films that either provide more-or-less accurate representations of his…",
-        genre: "Historical",
-        director: "Wilford Leach",
-        imagePath: "https://www.briansmoviestars.com/wp-content/uploads/2014/02/Denzel-Washington-31-300x210.jpg"
-        },
-  ]);
-
+  const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(null);
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+      fetch("https://czo-myflix-ccfb67c11465.herokuapp.com/movies")
+          .then((response) => response.json())
+          .then((data) => {
+              console.log(data);
+              const moviesFromApi = data.map((movie) => {
+                  return {
+                      _id: movie._id,
+                      Title: movie.Title,
+                      Description: movie.Description,
+                      Genre: {
+                          Name: movie.Genre.Name
+                      },
+                      Director: {
+                          Name: movie.Director.Name
+                      }
+                  };
+              });
+              setMovies(moviesFromApi);
+          });
+  }, []);
+
+  if (!user) {
+    return <LoginView onLoggedIn={(user) => setUser(user)} />;
+  }
 
   if (selectedMovie) {
     return (
@@ -41,14 +41,14 @@ export const MainView = () => {
   };
 
   if (movies.length === 0) {
-    return <div>The list is empty!</div>;
+    return <div>No movies to show</div>
   }
 
-  return (
+    return (
     <div>
       {movies.map((movie) => (
           <MovieCard 
-          key={movie.id} 
+          key={movie._id} 
           movie={movie}
           onMovieClick={(newSelectedMovie) => {
             setSelectedMovie(newSelectedMovie);
@@ -58,4 +58,3 @@ export const MainView = () => {
     </div>
   );
 };
-
