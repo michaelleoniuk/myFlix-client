@@ -142,7 +142,7 @@
       this[globalName] = mainExports;
     }
   }
-})({"g4Ndy":[function(require,module,exports) {
+})({"9ffLA":[function(require,module,exports) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
@@ -574,9 +574,9 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
     });
 }
 
-},{}],"1esLQ":[function(require,module,exports) {
-var Refresh = require("2c411d50ab9020a7");
-var ErrorOverlay = require("ae75f5125503e02e");
+},{}],"02kbR":[function(require,module,exports) {
+var Refresh = require("994ef35a8b3e2fb3");
+var ErrorOverlay = require("694ce132c14243cf");
 Refresh.injectIntoGlobalHook(window);
 window.$RefreshReg$ = function() {};
 window.$RefreshSig$ = function() {
@@ -595,11 +595,11 @@ window.addEventListener("parcelhmraccept", ()=>{
     ErrorOverlay.dismissRuntimeErrors();
 });
 
-},{"2c411d50ab9020a7":"4F4KH","ae75f5125503e02e":"8YsYl"}],"4F4KH":[function(require,module,exports) {
+},{"994ef35a8b3e2fb3":"f1wLr","694ce132c14243cf":"a5ECI"}],"f1wLr":[function(require,module,exports) {
 "use strict";
-module.exports = require("9b77a0f687c99791");
+module.exports = require("56ce0ed0a141a3f2");
 
-},{"9b77a0f687c99791":"lFp2c"}],"lFp2c":[function(require,module,exports) {
+},{"56ce0ed0a141a3f2":"djlk2"}],"djlk2":[function(require,module,exports) {
 /** @license React v0.9.0
  * react-refresh-runtime.development.js
  *
@@ -1059,8 +1059,8 @@ module.exports = require("9b77a0f687c99791");
     exports.setSignature = setSignature;
 })();
 
-},{}],"8YsYl":[function(require,module,exports) {
-var process = require("ce6b90c629ca350f");
+},{}],"a5ECI":[function(require,module,exports) {
+var process = require("2d7a91aee9140773");
 !function(e, t) {
     module.exports = t();
 }(window, function() {
@@ -2790,7 +2790,7 @@ var process = require("ce6b90c629ca350f");
     ]);
 });
 
-},{"ce6b90c629ca350f":"d5jf4"}],"d5jf4":[function(require,module,exports) {
+},{"2d7a91aee9140773":"d5jf4"}],"d5jf4":[function(require,module,exports) {
 // shim for using process in browser
 var process = module.exports = {};
 // cached from whatever global is present so that test runners that stub it
@@ -2969,7 +2969,7 @@ $RefreshReg$(_c, "App");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react-dom/client":"lOjBx","./components/main-view/main-view":"4gflv","./index.scss":"lJZlQ","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"kEVYa"}],"iTorj":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react-dom/client":"lOjBx","./components/main-view/main-view":"4gflv","./index.scss":"lJZlQ","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"Nwcn3"}],"iTorj":[function(require,module,exports) {
 "use strict";
 module.exports = require("ee51401569654d91");
 
@@ -27236,7 +27236,7 @@ $RefreshReg$(_c, "MainView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../movie-card/movie-card":"bwuIu","../movie-view/movie-view":"ggaUx","@parcel/transformer-js/src/esmodule-helpers.js":"7Y92l","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"kEVYa"}],"bwuIu":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../movie-card/movie-card":"bwuIu","../movie-view/movie-view":"ggaUx","@parcel/transformer-js/src/esmodule-helpers.js":"3EqLJ","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"Nwcn3"}],"bwuIu":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$67b2 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -27276,7 +27276,7 @@ $RefreshReg$(_c, "MovieCard");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","prop-types":"7wKI2","@parcel/transformer-js/src/esmodule-helpers.js":"7Y92l","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"kEVYa"}],"7wKI2":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","prop-types":"7wKI2","@parcel/transformer-js/src/esmodule-helpers.js":"3EqLJ","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"Nwcn3"}],"7wKI2":[function(require,module,exports) {
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -28023,7 +28023,7 @@ printWarning = function(text) {
 };
 module.exports = checkPropTypes;
 
-},{"24ba1e58d167a82c":"jZTZJ","898bc82f39d83f7c":"fqKuf"}],"7Y92l":[function(require,module,exports) {
+},{"24ba1e58d167a82c":"jZTZJ","898bc82f39d83f7c":"fqKuf"}],"3EqLJ":[function(require,module,exports) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
@@ -28053,9 +28053,9 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}],"kEVYa":[function(require,module,exports) {
+},{}],"Nwcn3":[function(require,module,exports) {
 "use strict";
-var Refresh = require("eb2355226b6bf333");
+var Refresh = require("32b195d7dda7df75");
 function debounce(func, delay) {
     {
         let timeout = undefined;
@@ -28191,7 +28191,7 @@ function registerExportsForReactRefresh(module1) {
     }
 }
 
-},{"eb2355226b6bf333":"4F4KH"}],"ggaUx":[function(require,module,exports) {
+},{"32b195d7dda7df75":"f1wLr"}],"ggaUx":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$e9f6 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -28283,6 +28283,6 @@ $RefreshReg$(_c, "MovieView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","prop-types":"7wKI2","@parcel/transformer-js/src/esmodule-helpers.js":"7Y92l","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"kEVYa"}],"lJZlQ":[function() {},{}]},["g4Ndy","1esLQ","d8Dch"], "d8Dch", "parcelRequireaec4")
+},{"react/jsx-dev-runtime":"iTorj","prop-types":"7wKI2","@parcel/transformer-js/src/esmodule-helpers.js":"3EqLJ","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"Nwcn3"}],"lJZlQ":[function() {},{}]},["9ffLA","02kbR","d8Dch"], "d8Dch", "parcelRequireaec4")
 
 //# sourceMappingURL=index.b4b6dfad.js.map
