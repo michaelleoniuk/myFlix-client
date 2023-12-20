@@ -1,13 +1,12 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
-export const LoginView = () => {
+export const LoginView = ({ onLoggedIn }) => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
   const handleSubmit = (event) => {
     // this prevents the default behavior of the form which is to reload the entire page
     event.preventDefault();
-
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
 
     const data = {
       access: username,
@@ -17,6 +16,12 @@ export const LoginView = () => {
     fetch("https://openlibrary.org/account/login.json", {
       method: "POST",
       body: JSON.stringify(data)
+    }).then((response) => {
+      if (response.ok) {
+        onLoggedIn(username);
+      } else {
+        alert("Login failed");
+      }
     });
   };
 
@@ -33,14 +38,12 @@ export const LoginView = () => {
       <label>
         Password:
         <input
-          type="text"
+          type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
       </label>
-      <button type="submit">
-        Submit
-      </button>
+      <button type="submit">Submit</button>
     </form>
   );
 };
