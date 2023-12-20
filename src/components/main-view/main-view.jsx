@@ -6,6 +6,7 @@ import { LoginView } from "../login-view/login-view";
 export const MainView = () => {
   const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(null);
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
       fetch("https://czo-myflix-ccfb67c11465.herokuapp.com/movies")
@@ -28,6 +29,10 @@ export const MainView = () => {
               setMovies(moviesFromApi);
           });
   }, []);
+
+  if (!user) {
+    return <LoginView />;
+  }
 
   if (selectedMovie) {
     return (
