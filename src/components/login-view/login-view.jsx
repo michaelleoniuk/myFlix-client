@@ -13,7 +13,7 @@ export const LoginView = ({ onLoggedIn }) => {
       Password: password
     };
 
-    fetch("https://openlibrary.org/account/login.json", {
+    fetch("https://czo-myflix-ccfb67c11465.herokuapp.com/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -24,6 +24,8 @@ export const LoginView = ({ onLoggedIn }) => {
     .then((data) => {
       console.log("Login response: ", data);
       if (data.user) {
+        localStorage.setItem("user", JSON.stringify(data.user));
+        localStorage.setItem("token", data.token);
         onLoggedIn(data.user, data.token);
       } else {
         alert("No such user");
@@ -32,6 +34,7 @@ export const LoginView = ({ onLoggedIn }) => {
     .catch((e) => {
       alert("Something went wrong");
     });
+  };
 
   return (
 <form onSubmit={handleSubmit}>
