@@ -10,7 +10,7 @@ export const MainView = () => {
   const [movies, setMovies] = useState([]);
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(null);
-  const [selectedMovie, setselectedMovie] = useState(null);
+  const [selectedMovie, setSelectedMovie] = useState(null);
 
   useEffect(() => {
     if (!token) {
@@ -59,7 +59,14 @@ export const MainView = () => {
   }
   }
 
+  if (selectedMovie) {
+    return (
+      <MovieView movie={selectedMovie} onBackClick={() => setSelectedMovie(null)} />
+    );
+  };
+
   if (movies.length === 0) {
+  
     return <div>
         <p>The list is empty!</p>
         <button onClick={() => { setUser(null); setToken(null); localStorage.clear(); }}>Logout</button>
@@ -73,7 +80,7 @@ export const MainView = () => {
                 key={movie._id}
                 movie={movie}
                 onMovieClick={(newSelectedMovie) => {
-                    setselectedMovie(newSelectedMovie);
+                    setSelectedMovie(newSelectedMovie);
                 }}
             />
         ))}
