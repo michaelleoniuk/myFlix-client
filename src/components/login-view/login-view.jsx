@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 import { useState } from "react";
 
 export const LoginView = ({ onLoggedIn }) => {
@@ -9,30 +11,42 @@ export const LoginView = ({ onLoggedIn }) => {
     event.preventDefault();
 
     const data = {
-      access: username,
-      secret: password
+      Username: username,
+      Password: password
     };
 
-    fetch("https://openlibrary.org/account/login.json", {
+    fetch("https://czo-myflix-ccfb67c11465.herokuapp.com/login", {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
       body: JSON.stringify(data)
-    }).then((response) => {
-      if (response.ok) {
-        onLoggedIn(username);
+    })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("Login response: ", data);
+      if (data.user) {
+        localStorage.setItem("user", JSON.stringify(data.user));
+        localStorage.setItem("token", data.token);
+        onLoggedIn(data.user, data.token);
       } else {
-        alert("Login failed");
+        alert("No such user");
       }
+    })
+    .catch((e) => {
+      alert("Something went wrong");
     });
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+<form onSubmit={handleSubmit}>
       <label>
         Username:
         <input
           type="text"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
+          required
         />
       </label>
       <label>
@@ -41,6 +55,7 @@ export const LoginView = ({ onLoggedIn }) => {
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          required
         />
       </label>
       <button type="submit">Submit</button>
