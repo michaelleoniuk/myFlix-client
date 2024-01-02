@@ -27379,7 +27379,7 @@ const MovieCard = ({ movie, onMovieClick })=>{
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardDefault.default).Img, {
                 variant: "top",
-                src: movie.Image
+                src: "https://cache.pressmailing.net/thumbnail/story_hires/c3822451-8a37-4c19-a495-fd3fc0edeb33/image.jpg"
             }, void 0, false, {
                 fileName: "src/components/movie-card/movie-card.jsx",
                 lineNumber: 8,
