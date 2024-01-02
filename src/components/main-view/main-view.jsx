@@ -89,7 +89,6 @@ export const MainView = () => {
                         onMovieClick={(newSelectedMovie) => {
                             setselectedMovie(newSelectedMovie);
                         }}
-                        style={img={height:"300px"}}
                     />
                 </Col>
             ))}
