@@ -29,7 +29,7 @@ export const ProfileView = ({ user, movies, setUser, removeFav, addFav}) => {
             Birthday: birthday
         }
 
-        fetch(`https://czo-myflix-ccfb67c11465.herokuapp.com/${user.Username}`, {
+        fetch(`https://czo-myflix-ccfb67c11465.herokuapp.com/users/${user.Username}`, {
             method: "PUT",
             body: JSON.stringify(data),
             headers: {
@@ -52,7 +52,12 @@ export const ProfileView = ({ user, movies, setUser, removeFav, addFav}) => {
     };
 
     const handleDelete = () => {
-        fetch(`https://czo-myflix-ccfb67c11465.herokuapp.com/${user.Username}`, {
+
+        event.preventDefault();
+
+        const user = JSON.parse(localStorage.getItem('user'));
+        
+        fetch(`https://czo-myflix-ccfb67c11465.herokuapp.com/users/${user.Username}`, {
             method: "DELETE",
             headers: {
                 Authorization: `Bearer ${token}`
