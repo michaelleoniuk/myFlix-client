@@ -16,7 +16,6 @@ export const MainView = () => {
     const [user, setUser] = useState(storedUser? storedUser: null);
     const [token, setToken] = useState(storedToken? storedToken: null);
     const [movies, setMovies] = useState([]);
-
     
     useEffect(() => {
         if (!token) {
@@ -65,7 +64,6 @@ export const MainView = () => {
                 alert("Added successfully");
                 localStorage.setItem('user', JSON.stringify(user));
                 setUser(user);
-                
             }
         }).catch(error => {
             console.error('Error: ', error);
@@ -91,7 +89,6 @@ export const MainView = () => {
                 alert("Removed successfully from favorite Movies");
                 localStorage.setItem('user', JSON.stringify(user));
                 setUser(user);
-                
             }
         }).catch(error => {
             console.error('Error: ', error);
