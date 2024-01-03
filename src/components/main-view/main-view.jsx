@@ -34,7 +34,6 @@ export const MainView = () => {
                         Title: movie.Title,
                         ImagePath: movie.ImagePath,
                         Description: movie.Description,
-                        Year: movie.Year,
                         Genre: {
                             Name: movie.Genre.Name
                         },
@@ -50,7 +49,7 @@ export const MainView = () => {
     
     const addFav = (id) => {
 
-        fetch(`https://czo-myflix-ccfb67c11465.herokuapp.com/${user.Username}/movies/${id}`, {
+        fetch(`https://czo-myflix-ccfb67c11465.herokuapp.com/users/${user.Username}/movies/${id}`, {
             method: "POST",
             headers: {
                 Authorization: `Bearer ${token}`
@@ -76,7 +75,7 @@ export const MainView = () => {
     
     const removeFav = (id) => {
 
-        fetch(`https://czo-myflix-ccfb67c11465.herokuapp.com/${user.Username}/movies/${id}`, {
+        fetch(`https://czo-myflix-ccfb67c11465.herokuapp.com/users/${user.Username}/movies/${id}`, {
             method: "DELETE",
             headers: {
                 Authorization: `Bearer ${token}`
@@ -110,8 +109,7 @@ export const MainView = () => {
                 }}
             />
             <Row className="justify-content-center my-5">
-                <Routes>
-                    
+                <Routes>  
                     <Route
                     path="/signup"
                     element={
