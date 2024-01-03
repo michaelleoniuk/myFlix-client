@@ -46,7 +46,7 @@ export const MainView = () => {
             });
     }, [token]);
 
-    
+    //Adding Favorite Movie
     const addFav = (id) => {
 
         fetch(`https://czo-myflix-ccfb67c11465.herokuapp.com/users/${user.Username}/movies/${id}`, {
@@ -72,7 +72,7 @@ export const MainView = () => {
         });
     };
 
-    
+    //Removing favorite Movie
     const removeFav = (id) => {
 
         fetch(`https://czo-myflix-ccfb67c11465.herokuapp.com/users/${user.Username}/movies/${id}`, {
