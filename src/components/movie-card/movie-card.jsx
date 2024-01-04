@@ -1,17 +1,26 @@
 import PropTypes from "prop-types";
-import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
+import { Button, Card } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
-export const MovieCard = ({ movie, onMovieClick }) => {
+export const MovieCard = ({ movie, addFav, removeFav, isFavorite }) => {
     return (
-        <Card>
-            <Card.Img variant="top" src="https://cache.pressmailing.net/thumbnail/story_hires/c3822451-8a37-4c19-a495-fd3fc0edeb33/image.jpg" />
+        <Card className="h-100 mt-5 card-shadow">
+            <Card.Img variant="top card-img" src={movie.ImagePath} />
             <Card.Body>
                 <Card.Title>{movie.Title}</Card.Title>
                 <Card.Text>{movie.Director.Name}</Card.Text>
-                <Button onClick={() => onMovieClick(movie)} variant="link">
-                    Open
-                </Button>
+                <Link to={`/movies/${encodeURIComponent(movie._id)}`}>
+                    <Button variant="link">
+                        Open
+                    </Button>
+                </Link>
+                <div>
+                    {isFavorite ? (
+                        <Button className="my-2 me-2" onClick={() => removeFav(movie._id)}>Remove from Favorite</Button>
+                    ) : (
+                        <Button className="my-2 me-2" onClick={() => addFav(movie._id)}>Add to Favorite</Button>
+                    )}
+                </div>
             </Card.Body>
         </Card>
     );
@@ -19,7 +28,13 @@ export const MovieCard = ({ movie, onMovieClick }) => {
 
 MovieCard.propTypes = {
     movie: PropTypes.shape({
-        Title: PropTypes.string,        
+        Title: PropTypes.string,
+        Director: PropTypes.shape({
+            Name: PropTypes.string,
+        }),
+        _id: PropTypes.string,
     }).isRequired,
-    onMovieClick: PropTypes.func.isRequired
+    addFav: PropTypes.func.isRequired,
+    removeFav: PropTypes.func.isRequired,
+    isFavorite: PropTypes.bool.isRequired,
 };
