@@ -32,6 +32,7 @@ export const MainView = () => {
                         _id: movie._id,
                         Title: movie.Title,
                         ImagePath: movie.ImagePath,
+                        Year: movie.Year,
                         Description: movie.Description,
                         Genre: {
                             Name: movie.Genre.Name

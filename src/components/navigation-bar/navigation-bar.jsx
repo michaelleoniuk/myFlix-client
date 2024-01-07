@@ -1,4 +1,6 @@
-import { Navbar, Container, Nav } from "react-bootstrap";
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
 import { Link } from "react-router-dom";
 
 export const NavigationBar = ({ user, onLoggedOut }) => {
@@ -6,36 +8,36 @@ export const NavigationBar = ({ user, onLoggedOut }) => {
         <Navbar bg="primary" expand="lg" fixed="top"> 
             <Container>
                 <Navbar.Brand as={Link} to="/">
-                    MyFlix
+                <div class="text-white">MyFlix</div>
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse id="-basic-navbar-nav">
-                    <Nav className="me-auto">
+                    <Navbar.Collapse id="basic-navbar-nav">
+                       <Nav className="me-auto">
                         {!user && (
                             <>
                                 <Nav.Link as={Link} to="/login">
-                                    Login
+                                <div class="text-white">Login</div>
                                 </Nav.Link>
                                 <Nav.Link as={Link} to="/signup">
-                                    Signup
+                                <div class="text-white">Signup</div>
                                 </Nav.Link>
                             </>
                         )}
                         {user && (
                             <>
                                 <Nav.Link as={Link} to="/">
-                                    Home
+                                <div class="text-white">Home</div>
                                 </Nav.Link>
                                 <Nav.Link as={Link} to="/profile">
-                                    Profile
+                                <div class="text-white">Profile</div>
                                 </Nav.Link>
                                 <Nav.Link onClick={onLoggedOut}>
-                                    Logout
+                                <div class="text-white">Logout</div>
                                 </Nav.Link>
                             </>
                         )}
-                    </Nav>
-                </Navbar.Collapse>
+                     </Nav>
+                    </Navbar.Collapse>
             </Container>
         </Navbar>
     )

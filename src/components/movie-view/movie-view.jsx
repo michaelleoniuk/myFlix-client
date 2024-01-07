@@ -13,7 +13,7 @@ export const MovieView = ({ movies, removeFav, addFav}) => {
         <>
             <Row className="my-5 justify-content-md-center">
                 <Col md={7} className="col-12">
-                    <img src={movie.ImagePath} alt="movie cover" className="mx-auto w-100" />
+                    <img src={movie.ImagePath} alt="movie cover" style={{ height: '500px' }} />
                 </Col>
                 <Col md={5} className="col-12">
                     <div className="my-1">
